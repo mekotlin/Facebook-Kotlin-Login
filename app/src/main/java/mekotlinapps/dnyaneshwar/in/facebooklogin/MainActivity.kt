@@ -19,12 +19,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-
         loginButton.setReadPermissions("public_profile")
-
         generateHashKey()
-
         loginButton.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onError(error: FacebookException?) {
             }
@@ -40,7 +36,6 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
-
 
     fun generateHashKey() {
         val info = packageManager.getPackageInfo("mekotlinapps.dnyaneshwar.in.facebooklogin", PackageManager.GET_SIGNATURES)
