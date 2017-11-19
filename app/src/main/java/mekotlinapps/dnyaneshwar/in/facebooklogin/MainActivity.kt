@@ -6,13 +6,11 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Base64
 import android.util.Log
-import android.view.View
 import com.facebook.*
 import com.facebook.login.LoginResult
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
 import java.security.MessageDigest
-import mekotlinapps.dnyaneshwar.`in`.facebooklogin.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,6 +24,8 @@ class MainActivity : AppCompatActivity() {
         if (AccessToken.getCurrentAccessToken() == null) {
             tvMsg.setText("Welcome to the facebook login demo by Dnyaneshwar")
         } else {
+
+            /*if your logged in then you will get access token here*/
             val accessToken = AccessToken.getCurrentAccessToken()
         }
 
@@ -51,13 +51,14 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    /*generateHashKey gives you hash key to save facebook dev side*/
     fun generateHashKey() {
-        val info = packageManager.getPackageInfo("mekotlinapps.dnyaneshwar.in.facebooklogin", PackageManager.GET_SIGNATURES)
+        val info = packageManager.getPackageInfo("Your Package Name", PackageManager.GET_SIGNATURES)
 
         for (signature in info.signatures) {
             val md = MessageDigest.getInstance("SHA")
             md.update(signature.toByteArray())
-            Log.e("HashKey :", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            Log.i("HashKey :", Base64.encodeToString(md.digest(), Base64.DEFAULT));
         }
     }
 
