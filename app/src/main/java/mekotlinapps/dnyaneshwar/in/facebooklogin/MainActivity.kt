@@ -21,6 +21,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         loginButton.setReadPermissions("public_profile")
         generateHashKey()
+
+        if (AccessToken.getCurrentAccessToken() == null) {
+            tvMsg.setText("Welcome to the facebook login demo by Dnyaneshwar")
+        } else {
+            val accessToken = AccessToken.getCurrentAccessToken()
+        }
+
         loginButton.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onError(error: FacebookException?) {
             }
