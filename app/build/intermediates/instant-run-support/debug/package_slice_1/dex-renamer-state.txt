@@ -1,0 +1,4 @@
+#Sun Nov 19 18:15:08 IST 2017
+base.0=/Users/dnyaneshwar/facebook_login_test/app/build/intermediates/transforms/dexMerger/debug/1
+renamed.0=classes.dex
+file.0=/Users/dnyaneshwar/facebook_login_test/app/build/intermediates/transforms/dexMerger/debug/1/classes.dex

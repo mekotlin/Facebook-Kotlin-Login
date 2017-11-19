@@ -12,6 +12,7 @@ import com.facebook.login.LoginResult
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
 import java.security.MessageDigest
+import mekotlinapps.dnyaneshwar.`in`.facebooklogin.R
 
 class MainActivity : AppCompatActivity() {
 
@@ -33,10 +34,16 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onSuccess(result: LoginResult?) {
-                val profile = Profile.getCurrentProfile()
-                val name = profile.name
-                tvMsg.setText("Thank you $name")
-                toast("Thank you $name")
+
+                if (AccessToken.getCurrentAccessToken() != null) {
+                    val profile = Profile.getCurrentProfile()
+                    if (profile != null) {
+                        val name = profile.name
+                        tvMsg?.setText("Thank you $name")
+                        toast("Thank you $name")
+                    }
+
+                }
             }
 
             override fun onCancel() {
