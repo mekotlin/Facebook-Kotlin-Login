@@ -33,6 +33,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     compile 'com.facebook.android:facebook-login:[4,5)'
     compile "org.jetbrains.anko:anko-commons:0.10.2"
+    compile 'com.android.support:design:26.1.0'
 
 
 }
