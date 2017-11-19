@@ -16,8 +16,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
         login_button.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
             override fun onError(error: FacebookException?) {
 
